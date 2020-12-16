@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Person extends Actor
 {
-    protected GreenfootImage sprites[];
+    public GreenfootImage sprites[];
     protected int currentSprite = 0;
     protected int delaySprite = 0;
     protected CharacterDirection direction;

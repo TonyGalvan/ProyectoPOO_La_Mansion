@@ -13,7 +13,11 @@ public class Level1 implements StaticMapLoader
         addWalls(map);
         addCoin(map);
         map.addObject(new Player(), 73, 515);
-        map.addObject(new Monster(), map.getWidth()/2 - 50, map.getHeight()/2);
+        map.addObject(new Monster(), 70, 70);
+        map.addObject(new Monster(), 500, 300);
+        map.addObject(new Monster(), 900, 400);
+        map.addObject(new Monster(), 900, 100);
+
 
 
         return map;
