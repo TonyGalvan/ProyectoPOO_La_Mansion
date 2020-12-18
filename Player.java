@@ -91,16 +91,16 @@ public class Player extends Person
         switch(direction)
         {
             case UP:
-            wall = (Wall)getOneObjectAtOffset(0, -20, Wall.class);
+            wall = (Wall)getOneObjectAtOffset(0, -40, Wall.class);
             break;
             case DOWN:
-            wall = (Wall)getOneObjectAtOffset(0, 20, Wall.class);
+            wall = (Wall)getOneObjectAtOffset(0, 40, Wall.class);
             break;
             case RIGHT:
-            wall = (Wall)getOneObjectAtOffset(20, 0, Wall.class);
+            wall = (Wall)getOneObjectAtOffset(20, -20, Wall.class);
             break;
             case LEFT:
-            wall = (Wall)getOneObjectAtOffset(-20, 0, Wall.class);
+            wall = (Wall)getOneObjectAtOffset(-20, 20, Wall.class);
             break;
         }
 

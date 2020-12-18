@@ -1,20 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Coin here.
+ * Write a description of class key here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Coin extends Item
+public class Key extends Item
 {
     /**
-     * Act - do whatever the Coin wants to do. This method is called whenever
+     * Act - do whatever the key wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private static final GreenfootImage image = new GreenfootImage("images/moneda.png");
+    private static final GreenfootImage image = new GreenfootImage("images/key.png");
 
-    public Coin(){
+    public Key(){
         setImage(image);
 
         points = 5;

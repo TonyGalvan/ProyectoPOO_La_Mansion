@@ -14,7 +14,6 @@ public class Menu extends World
      */
     public Menu()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 600, 1); 
         prepare();
     }
@@ -28,7 +27,7 @@ public class Menu extends World
         PlayButton playButton = new PlayButton();
         addObject(playButton,91,92);
         playButton.setLocation(500,350);
-        
+
         setBackground​("images/img_texto2.png");
     }
 }

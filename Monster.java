@@ -18,16 +18,12 @@ public class Monster extends Person
     public GreenfootImage image = new GreenfootImage("images/monstruo_right.png");
 
     
-   
-
-    
-    
     public Monster()
     {
         direction = CharacterDirection.getRandomDirection();
         setImage(image);
     }
-    
+
     public void act() 
     {
         setLocation(getX() + moveX, getY() + moveY);
@@ -35,17 +31,15 @@ public class Monster extends Person
         if( checkCollisions()){
             direction = CharacterDirection.getRandomDirection();
         } 
-        
+
         moveMonster();
     }
-    
 
-    
     void moveMonster()
     {
         moveX = 0;
         moveY = 0;
-        
+
         switch(direction)
         {
             case UP:
@@ -53,19 +47,19 @@ public class Monster extends Person
             image = new GreenfootImage("images/monstruo_up.png");
             setImage(image);
             break;
-            
+
             case DOWN:
             moveY = 1;
             image = new GreenfootImage("images/monstruo_down.png");
             setImage(image);
             break;
-            
+
             case LEFT:
             moveX = -1;
             image = new GreenfootImage("images/monstruo_left.png");
             setImage(image);
             break;
-            
+
             case RIGHT:
             moveX = 1;
             image = new GreenfootImage("images/monstruo_right.png");
@@ -73,14 +67,14 @@ public class Monster extends Person
             break;
         }
     }
-    
+
     boolean checkCollisions()
     {
         Wall walls = null;
-        
+
         switch(direction)
         {
-             case UP:
+            case UP:
             walls = (Wall)getOneObjectAtOffset(0, -40, Wall.class);
             break;
             case DOWN:
@@ -93,8 +87,8 @@ public class Monster extends Person
             walls = (Wall)getOneObjectAtOffset(-40, 0, Wall.class);
             break;
         }
-        
+
         return walls != null;
-    
+
     }
 }
