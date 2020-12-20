@@ -98,10 +98,10 @@ public class Player extends Person
             wall = (Wall)getOneObjectAtOffset(0, 40, Wall.class);
             break;
             case RIGHT:
-            wall = (Wall)getOneObjectAtOffset(20, -20, Wall.class);
+            wall = (Wall)getOneObjectAtOffset(40, 0, Wall.class);
             break;
             case LEFT:
-            wall = (Wall)getOneObjectAtOffset(-20, 20, Wall.class);
+            wall = (Wall)getOneObjectAtOffset(-40, 0, Wall.class);
             break;
         }
 

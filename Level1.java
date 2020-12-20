@@ -14,12 +14,12 @@ public class Level1 implements StaticMapLoader
         addCoin(map);
         addKey(map);
         addDiamond(map);
+        addRoomExit(map);
         map.addObject(new Player(), 73, 515);
         map.addObject(new Monster(), 70, 70);
         map.addObject(new Monster(), 400, 300);
         map.addObject(new Monster(), 900, 400);
         map.addObject(new Monster(), 900, 100);
-        map.addObject(new RoomExit(), 925, 530);
 
         return map;
     }
@@ -58,11 +58,11 @@ public class Level1 implements StaticMapLoader
         for(int x = 820; x <1000; x+=60) {
             map.addObject(new Wall(), x, 450);
         }
-        
+
         for(int x = 880; x <1000; x+=60) {
             map.addObject(new Wall(), x, 300);
         }
-        
+
         map.addObject(new Wall(), 150, 350);
         map.addObject(new Wall(), 210, 350);
         map.addObject(new Wall(), 730, 200);
@@ -78,37 +78,41 @@ public class Level1 implements StaticMapLoader
         for(int x = 300; x <=900; x+=40) {
             map.addObject(new Coin(), x, 580);
         }
-         for(int x = 820; x <1000; x+=40) {
+        for(int x = 820; x <1000; x+=40) {
             map.addObject(new Coin(), x, 430);
         }
-        
+
         for(int x = 880; x <1000; x+=40) {
             map.addObject(new Coin(), x, 280);
         }
-        
+
         for(int x = 320; x <640; x+=40) {
             map.addObject(new Coin(), x, 480);
         }
 
     }
-    
+
     void addKey(Map map)
     { 
-        map.addObject(new Key(), 440, 225);
-       
+        map.addObject(new Key(), 440, 225);       
 
     }
-    
+
+    void addRoomExit(Map map)
+    {
+        map.addObject(new RoomExit(), 930, 530);
+    }
+
     void addDiamond(Map map)
     { 
         for(int x = 280; x <590; x+=45) {
             map.addObject(new Diamond(), x, 100);
         }
-        
+
         for(int y = 145; y <325; y+=45) {
             map.addObject(new Diamond(), 550, y);
         }
-        
+
         map.addObject(new Diamond(), 200, 225);
         map.addObject(new Diamond(), 140, 225);
         map.addObject(new Diamond(), 200, 275);
