@@ -19,6 +19,7 @@ public class Level1 implements StaticMapLoader
         map.addObject(new Monster(), 400, 300);
         map.addObject(new Monster(), 900, 400);
         map.addObject(new Monster(), 900, 100);
+        map.addObject(new RoomExit(), 925, 530);
 
         return map;
     }
@@ -74,7 +75,7 @@ public class Level1 implements StaticMapLoader
             map.addObject(new Coin(), 100, y);
         }
 
-        for(int x = 300; x <=980; x+=40) {
+        for(int x = 300; x <=900; x+=40) {
             map.addObject(new Coin(), x, 580);
         }
          for(int x = 820; x <1000; x+=40) {

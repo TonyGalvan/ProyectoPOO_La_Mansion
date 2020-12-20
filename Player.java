@@ -92,6 +92,7 @@ public class Player extends Person
         {
             case UP:
             wall = (Wall)getOneObjectAtOffset(0, -40, Wall.class);
+            
             break;
             case DOWN:
             wall = (Wall)getOneObjectAtOffset(0, 40, Wall.class);
