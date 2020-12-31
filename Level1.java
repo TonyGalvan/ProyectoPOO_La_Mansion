@@ -71,23 +71,23 @@ public class Level1 implements StaticMapLoader
 
     void addCoin(Map map)
     {       
-        for(int y = 220; y <=420; y+=50) {
-            map.addObject(new Coin(), 100, y);
+        for(int y = 180; y <=420; y+=40) {
+            map.addObject(new Coin(), 70, y);
         }
 
-        for(int x = 300; x <=900; x+=40) {
-            map.addObject(new Coin(), x, 580);
+        for(int x = 260; x <=800; x+=40) {
+            map.addObject(new Coin(), x, 550);
         }
-        for(int x = 820; x <1000; x+=40) {
-            map.addObject(new Coin(), x, 430);
-        }
-
-        for(int x = 880; x <1000; x+=40) {
-            map.addObject(new Coin(), x, 280);
+        for(int x = 800; x <970; x+=40) {
+            map.addObject(new Coin(), x, 400);
         }
 
-        for(int x = 320; x <640; x+=40) {
-            map.addObject(new Coin(), x, 480);
+        for(int x = 870; x <990; x+=40) {
+            map.addObject(new Coin(), x, 250);
+        }
+
+        for(int x = 300; x <780; x+=40) {
+            map.addObject(new Coin(), x, 490);
         }
 
     }
@@ -100,7 +100,7 @@ public class Level1 implements StaticMapLoader
 
     void addRoomExit(Map map)
     {
-        map.addObject(new RoomExit(), 930, 530);
+        map.addObject(new RoomExit(), 925, 525);
     }
 
     void addDiamond(Map map)

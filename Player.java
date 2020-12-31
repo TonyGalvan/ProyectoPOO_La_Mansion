@@ -43,6 +43,7 @@ public class Player extends Person
         }
 
         checkCollisions();
+        eatPoints();
 
     }    
 
@@ -50,7 +51,6 @@ public class Player extends Person
     {
         movementInY = 0;
         movementInX = 0;
-        Actor wallCollision = getOneIntersectingObject(Wall.class);
 
         switch(keyPressed)
         {
@@ -86,6 +86,7 @@ public class Player extends Person
 
             break;
         }
+
     }
 
     void checkCollisions()
@@ -114,5 +115,10 @@ public class Player extends Person
             movementInX = 0;
         }
 
+    }
+    void eatPoints(){  
+        if(isTouching(Item.class)){
+            removeTouching(Item.class);
+        }    
     }
 }

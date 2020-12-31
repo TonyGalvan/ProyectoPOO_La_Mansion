@@ -15,9 +15,8 @@ public class Monster extends Person
     protected CharacterDirection direction;
     private int moveX;
     private int moveY;
-    public GreenfootImage image = new GreenfootImage("images/monstruo_right.png");
+    public GreenfootImage image = new GreenfootImage("images/monstruo_right2.png");
 
-    
     public Monster()
     {
         direction = CharacterDirection.getRandomDirection();
@@ -44,25 +43,25 @@ public class Monster extends Person
         {
             case UP:
             moveY = -1;
-            image = new GreenfootImage("images/monstruo_up.png");
+            image = new GreenfootImage("images/monstruo_up2.png");
             setImage(image);
             break;
 
             case DOWN:
             moveY = 1;
-            image = new GreenfootImage("images/monstruo_down.png");
+            image = new GreenfootImage("images/monstruo_down2.png");
             setImage(image);
             break;
 
             case LEFT:
             moveX = -1;
-            image = new GreenfootImage("images/monstruo_left.png");
+            image = new GreenfootImage("images/monstruo_left2.png");
             setImage(image);
             break;
 
             case RIGHT:
             moveX = 1;
-            image = new GreenfootImage("images/monstruo_right.png");
+            image = new GreenfootImage("images/monstruo_right2.png");
             setImage(image);
             break;
         }
