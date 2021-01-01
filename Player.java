@@ -1,5 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Write a description of class PacMan here.
  * 
@@ -13,8 +12,9 @@ public class Player extends Person
 
     public GreenfootImage image = new GreenfootImage ("images/personaje_right.png");
 
-    private int lifes;
-    private int points;
+    public static int lifes;
+    public static int points;
+    public static boolean key = false;
 
     private int movementInX;
     private int movementInY;
@@ -26,6 +26,8 @@ public class Player extends Person
         lifes = INITIAL_LIFES;
         points = INITIAL_POINTS;
         direction = CharacterDirection.RIGHT;
+        
+
     }
 
     /**
@@ -35,6 +37,13 @@ public class Player extends Person
     public void act() 
     {
         setLocation(getX() + movementInX, getY() + movementInY);
+        getWorld().showText("Points = " + points, 100, 20);
+        getWorld().showText("Lifes = " + lifes, 220, 20);
+        getWorld().showText("Level 1", 420, 20);
+        
+        if(key == false){
+            getWorld().showText("Key = No ", 320, 20);
+        }
 
         String lastKeyPressed = Greenfoot.getKey();
         if(lastKeyPressed != null)
@@ -44,7 +53,6 @@ public class Player extends Person
 
         checkCollisions();
         eatPoints();
-
     }    
 
     void movePlayer(String keyPressed)
@@ -116,9 +124,27 @@ public class Player extends Person
         }
 
     }
-    void eatPoints(){  
-        if(isTouching(Item.class)){
-            removeTouching(Item.class);
-        }    
+    void eatPoints(){
+        if(isTouching(Key.class)){
+                Greenfoot.playSound("key.wav");
+                removeTouching(Key.class);
+                key = true;
+                getWorld().showText("Key = Yes ", 320, 20);
+            }
+        if(isTouching(Coin.class)){
+            Greenfoot.playSound("coin.wav");
+            removeTouching(Coin.class);
+            points += 5;
+            getWorld().showText("Points = " + points, 100, 20);
+            
+        }
+        if(isTouching(Diamond.class)){
+            Greenfoot.playSound("coin.wav");
+            removeTouching(Diamond.class);
+            points += 10;
+            getWorld().showText("Points = " + points, 100, 20);
+            
+        }
     }
+   
 }

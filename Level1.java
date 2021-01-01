@@ -130,4 +130,5 @@ public class Level1 implements StaticMapLoader
         map.addObject(new Diamond(), 855, 200);
 
     }
+
 }

@@ -32,6 +32,7 @@ public class Monster extends Person
         } 
 
         moveMonster();
+        checkLifes();
     }
 
     void moveMonster()
@@ -89,5 +90,19 @@ public class Monster extends Person
 
         return walls != null;
 
+    }
+    void checkLifes(){
+        int points = Player.points;
+        int lifes = Player.lifes;
+        boolean key = Player.key;
+        if(isTouching(Player.class)){
+                //Greenfoot.playSound("key.wav");
+                removeTouching(Player.class);
+                getWorld().addObject(new Player(),73, 515);
+                lifes -= 1; 
+                Player.lifes = lifes;
+                Player.points = points;
+                Player.key = key;
+            }        
     }
 }

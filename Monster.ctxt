@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=void\ moveMonster()
 comment4.params=
 comment4.target=boolean\ checkCollisions()
-numComments=5
+comment5.params=
+comment5.target=void\ checkLifes()
+numComments=6
