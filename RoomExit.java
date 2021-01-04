@@ -12,7 +12,7 @@ public class RoomExit extends Actor
      * Act - do whatever the RoomExit wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private static final GreenfootImage image = new GreenfootImage("images/puerta.png");
+    private static GreenfootImage image = new GreenfootImage("images/puerta.png");
 
     public RoomExit(){
         setImage(image);

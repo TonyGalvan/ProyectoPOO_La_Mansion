@@ -1,23 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Enemy here.
+ * Write a description of class Mummy here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Monster extends Person
+public class Mummy extends Person
 {
-    /**
-     * Act - do whatever the Enemy wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     protected CharacterDirection direction;
     private int moveX;
     private int moveY;
-    public GreenfootImage image = new GreenfootImage("images/monstruo_right2.png");
+    public GreenfootImage image = new GreenfootImage("images/momia_right.png");
 
-    public Monster()
+    public Mummy()
     {
         direction = CharacterDirection.getRandomDirection();
         setImage(image);
@@ -31,11 +27,11 @@ public class Monster extends Person
             direction = CharacterDirection.getRandomDirection();
         } 
 
-        moveMonster();
+        moveMummy();
         checkLifes();
     }
 
-    void moveMonster()
+    void moveMummy()
     {
         moveX = 0;
         moveY = 0;
@@ -44,25 +40,25 @@ public class Monster extends Person
         {
             case UP:
             moveY = -1;
-            image = new GreenfootImage("images/monstruo_up2.png");
+            image = new GreenfootImage("images/momia_up.png");
             setImage(image);
             break;
 
             case DOWN:
             moveY = 1;
-            image = new GreenfootImage("images/monstruo_down2.png");
+            image = new GreenfootImage("images/momia_down.png");
             setImage(image);
             break;
 
             case LEFT:
             moveX = -1;
-            image = new GreenfootImage("images/monstruo_left2.png");
+            image = new GreenfootImage("images/momia_left.png");
             setImage(image);
             break;
 
             case RIGHT:
             moveX = 1;
-            image = new GreenfootImage("images/monstruo_right2.png");
+            image = new GreenfootImage("images/momia_right.png");
             setImage(image);
             break;
         }

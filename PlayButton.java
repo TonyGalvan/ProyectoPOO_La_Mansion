@@ -20,5 +20,12 @@ public class PlayButton extends Actor
 
             Greenfoot.setWorld(mapLoader.loadMap());
         }
+        
+        if(Player.key == true)
+        {
+            MapLoader mapLoader = new Level1();
+
+            Greenfoot.setWorld(mapLoader.loadMap());
+        }
     }    
 }

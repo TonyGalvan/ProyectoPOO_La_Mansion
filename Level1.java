@@ -1,3 +1,4 @@
+
 /**
  * Write a description of class PacmanGoogleMap here.
  * 
@@ -16,10 +17,14 @@ public class Level1 implements StaticMapLoader
         addDiamond(map);
         addRoomExit(map);
         map.addObject(new Player(), 73, 515);
-        map.addObject(new Monster(), 70, 70);
+        map.addObject(new Reaper(), 70, 70);
         map.addObject(new Monster(), 400, 300);
         map.addObject(new Monster(), 900, 400);
         map.addObject(new Monster(), 900, 100);
+        map.addObject(new Reaper(), 70, 70);
+        map.addObject(new Mummy(), 400, 300);
+        map.addObject(new Reaper(), 900, 400);
+        map.addObject(new Mummy(), 900, 100);
 
         return map;
     }
@@ -66,7 +71,7 @@ public class Level1 implements StaticMapLoader
         map.addObject(new Wall(), 150, 350);
         map.addObject(new Wall(), 210, 350);
         map.addObject(new Wall(), 730, 200);
-
+        map.addObject(new Wall(), 500, 545);
     }
 
     void addCoin(Map map)

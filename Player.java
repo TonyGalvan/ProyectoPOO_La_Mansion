@@ -26,7 +26,6 @@ public class Player extends Person
         lifes = INITIAL_LIFES;
         points = INITIAL_POINTS;
         direction = CharacterDirection.RIGHT;
-        
 
     }
 
@@ -37,12 +36,12 @@ public class Player extends Person
     public void act() 
     {
         setLocation(getX() + movementInX, getY() + movementInY);
-        getWorld().showText("Points = " + points, 100, 20);
-        getWorld().showText("Lifes = " + lifes, 220, 20);
-        getWorld().showText("Level 1", 420, 20);
-        
+        getWorld().showText("Points = " + points, 100, 15);
+        getWorld().showText("Lifes = " + lifes, 220, 15);
+        getWorld().showText("Time ", 420, 15);
+
         if(key == false){
-            getWorld().showText("Key = No ", 320, 20);
+            getWorld().showText("Key = No ", 335, 15);
         }
 
         String lastKeyPressed = Greenfoot.getKey();
@@ -53,6 +52,11 @@ public class Player extends Person
 
         checkCollisions();
         eatPoints();
+        checkRoomExit();
+        if(lifes == 0){
+            Greenfoot.delay(20);
+            Greenfoot.setWorld(new GameOver());
+        }
     }    
 
     void movePlayer(String keyPressed)
@@ -124,27 +128,35 @@ public class Player extends Person
         }
 
     }
+
     void eatPoints(){
         if(isTouching(Key.class)){
-                Greenfoot.playSound("key.wav");
-                removeTouching(Key.class);
-                key = true;
-                getWorld().showText("Key = Yes ", 320, 20);
-            }
+            Greenfoot.playSound("key.wav");
+            removeTouching(Key.class);
+            key = true;
+            getWorld().showText("Key = Yes ", 335, 15);
+        }
         if(isTouching(Coin.class)){
             Greenfoot.playSound("coin.wav");
             removeTouching(Coin.class);
             points += 5;
-            getWorld().showText("Points = " + points, 100, 20);
-            
+            getWorld().showText("Points = " + points, 100, 15);
+
         }
         if(isTouching(Diamond.class)){
             Greenfoot.playSound("coin.wav");
             removeTouching(Diamond.class);
             points += 10;
-            getWorld().showText("Points = " + points, 100, 20);
-            
+            getWorld().showText("Points = " + points, 100, 15);
+
         }
     }
-   
+
+    void checkRoomExit(){
+        if(isTouching(RoomExit.class) && key == true){
+            Greenfoot.delay(20);
+            Greenfoot.setWorld(new Congratulations());
+        }
+
+    }
 }
