@@ -34,7 +34,7 @@
 public class SimpleTimer
 {
     private long lastMark = System.currentTimeMillis();
-    
+
     /**
      * Marks the current time.  You can then in future call
      * millisElapsed() to find out the elapsed milliseconds
@@ -47,7 +47,7 @@ public class SimpleTimer
     {
         lastMark = System.currentTimeMillis();
     }
-    
+
     /**
      * Returns the amount of milliseconds that have elapsed since mark()
      * was last called.  This timer runs irrespective of Greenfoot's
