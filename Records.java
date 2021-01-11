@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Comparator;
 import java.util.Scanner;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -23,8 +22,8 @@ import java.io.IOException;
  */
 public class Records extends World
 {
-    private static final int INDEX_NAME = 0;
-    private static final int INDEX_POINTS = 1;
+    private static final int NAME = 0;
+    private static final int POINTS = 1;
     /**
      * Constructor for objects of class Records.
      * 
@@ -48,23 +47,18 @@ public class Records extends World
         List<Character> players = new ArrayList<>();
         FileReader leer;
         String cadena = null;
-        String points = null;
         String names = null;
         String[] datos = null;
         int cont = 0;
         Character player = null;
-        boolean compare = false;
-         int puntos=0;
-        //Scanner sc = new Scanner(System.in);
 
         File file = new File("records.txt");
         try {
             leer = new FileReader(file);
             BufferedReader almacenar = new BufferedReader(leer);
-            //cadena = "";
             while((cadena = almacenar.readLine()) != null) {
                 datos = cadena.split(",");
-                player = new Character(datos[INDEX_NAME], Integer.parseInt(datos[INDEX_POINTS]));
+                player = new Character(datos[NAME], Integer.parseInt(datos[POINTS]));
                 players.add(player);
                 cont++;
             }
