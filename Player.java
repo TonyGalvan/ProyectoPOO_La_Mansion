@@ -1,5 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Write a description of class PacMan here.
  * 
@@ -10,22 +9,25 @@ public class Player extends Person
 {
     private static final int INITIAL_LIFES = 6;
     private static final int INITIAL_POINTS = 0;
-    private static final int ITERATIONS_TO_CHANGE_SPRITE = 15;
 
-    private int lifes;
-    private int points;
+    public GreenfootImage image = new GreenfootImage ("images/personaje_right.png");
+
+    public static int lifes;
+    public static int points;
+    public static String name;
+    public static boolean key = false;
 
     private int movementInX;
     private int movementInY;
 
     public Player()
     {
-        sprites = new GreenfootImage[1];
-        sprites[0] = new GreenfootImage("images/personaje_right.png");
-
+        setImage(image);
+        
         lifes = INITIAL_LIFES;
         points = INITIAL_POINTS;
         direction = CharacterDirection.RIGHT;
+
     }
 
     /**
@@ -34,17 +36,14 @@ public class Player extends Person
      */
     public void act() 
     {
-        if(delaySprite >= ITERATIONS_TO_CHANGE_SPRITE)
-        {
-            currentSprite = (++currentSprite) % sprites.length;
-            setImage(sprites[currentSprite]);
-
-            delaySprite = 0;
-        }
-
-        delaySprite++;
-
         setLocation(getX() + movementInX, getY() + movementInY);
+        getWorld().showText("Points = " + points, 100, 15);
+        getWorld().showText("Lifes = " + lifes, 220, 15);
+        getWorld().showText("Time ", 420, 15);
+
+        if(key == false){
+            getWorld().showText("Key = No ", 335, 15);
+        }
 
         String lastKeyPressed = Greenfoot.getKey();
         if(lastKeyPressed != null)
@@ -53,54 +52,73 @@ public class Player extends Person
         }
 
         checkCollisions();
-
+        eatPoints();
+        checkRoomExit();
+        if(lifes == 0){
+            name = Greenfoot.ask("Name :");
+            Greenfoot.setWorld(new GameOver());
+        }
     }    
 
     void movePlayer(String keyPressed)
     {
         movementInY = 0;
         movementInX = 0;
+
         switch(keyPressed)
         {
             case "up":
+
             movementInY = -1;
             direction = CharacterDirection.UP;
-            sprites[0]= new GreenfootImage("images/personaje_up.png");
+            image = new GreenfootImage("images/personaje_up.png");
+            setImage(image);
+
             break;
             case "down":
+
             movementInY = 1;
             direction = CharacterDirection.DOWN;
-            sprites[0] = new GreenfootImage("images/personaje_down.png");
+            image = new GreenfootImage("images/personaje_down.png");
+            setImage(image);
+
             break;
             case "left":
+
             direction = CharacterDirection.LEFT;
             movementInX = -1;
-            sprites[0] = new GreenfootImage("images/personaje_left.png");
+            image = new GreenfootImage("images/personaje_left.png");
+            setImage(image);
+
             break;
             case "right":
             direction = CharacterDirection.RIGHT;
             movementInX = 1;
-            sprites[0] = new GreenfootImage("images/personaje_right.png");
+            image = new GreenfootImage("images/personaje_right.png");
+            setImage(image);
+
             break;
         }
+
     }
 
     void checkCollisions()
     {
-        Wall wall = null; 
+
+        Wall wall = null;
         switch(direction)
         {
             case UP:
-            wall = (Wall)getOneObjectAtOffset(0, -20, Wall.class);
+            wall = (Wall)getOneObjectAtOffset(0, -40, Wall.class);
             break;
             case DOWN:
-            wall = (Wall)getOneObjectAtOffset(0, 20, Wall.class);
+            wall = (Wall)getOneObjectAtOffset(0, 50, Wall.class);
             break;
             case RIGHT:
-            wall = (Wall)getOneObjectAtOffset(20, 0, Wall.class);
+            wall = (Wall)getOneObjectAtOffset(30, 20, Wall.class);
             break;
             case LEFT:
-            wall = (Wall)getOneObjectAtOffset(-20, 0, Wall.class);
+            wall = (Wall)getOneObjectAtOffset(-25, 20, Wall.class);
             break;
         }
 
@@ -112,5 +130,34 @@ public class Player extends Person
 
     }
 
+    void eatPoints(){
+        if(isTouching(Key.class)){
+            Greenfoot.playSound("key.wav");
+            removeTouching(Key.class);
+            key = true;
+            getWorld().showText("Key = Yes ", 335, 15);
+        }
+        if(isTouching(Coin.class)){
+            Greenfoot.playSound("coin.wav");
+            removeTouching(Coin.class);
+            points += 5;
+            getWorld().showText("Points = " + points, 100, 15);
 
+        }
+        if(isTouching(Diamond.class)){
+            Greenfoot.playSound("coin.wav");
+            removeTouching(Diamond.class);
+            points += 10;
+            getWorld().showText("Points = " + points, 100, 15);
+
+        }
+    }
+
+    void checkRoomExit(){
+        if(isTouching(RoomExit.class) && key == true){
+            name = Greenfoot.ask("Name :");
+            Greenfoot.setWorld(new Congratulations());
+        }
+
+    }
 }

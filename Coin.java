@@ -17,7 +17,7 @@ public class Coin extends Item
     public Coin(){
         setImage(image);
 
-        points = 1;
+        points = 5;
 
     }
 }

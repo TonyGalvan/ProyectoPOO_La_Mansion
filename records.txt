@@ -1,0 +1,6 @@
+tony,205
+dany,160
+dany,125
+tony,160
+tony,185
+chino,105
