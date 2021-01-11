@@ -29,7 +29,7 @@ public class GameOver extends World
         backButton.setLocation(900,580);
         creaArchivo();
     }
-
+    
     public void creaArchivo()
     {
         File file = new File("records.txt");
@@ -46,14 +46,15 @@ public class GameOver extends World
         }
 
         try {
-            escribir = new FileWriter(file, true);
+            escribir = new FileWriter(file,true);
             linea = new PrintWriter(escribir);
-            linea.println(points);
+            linea.println(Player.name+","+ Player.points);
             escribir.close();
             linea.close();
         }catch (Exception e) {
             e.printStackTrace();
         }
-
     }
+
+   
 }

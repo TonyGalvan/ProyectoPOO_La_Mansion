@@ -46,14 +46,13 @@ public class Congratulations extends World
         }
 
         try {
-            escribir = new FileWriter(file, true);
+            escribir = new FileWriter(file,true);
             linea = new PrintWriter(escribir);
-            linea.println(points);
+            linea.println(Player.name+","+ Player.points);
             escribir.close();
             linea.close();
         }catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }

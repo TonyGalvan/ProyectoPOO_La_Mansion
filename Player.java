@@ -14,6 +14,7 @@ public class Player extends Person
 
     public static int lifes;
     public static int points;
+    public static String name;
     public static boolean key = false;
 
     private int movementInX;
@@ -22,7 +23,7 @@ public class Player extends Person
     public Player()
     {
         setImage(image);
-
+        
         lifes = INITIAL_LIFES;
         points = INITIAL_POINTS;
         direction = CharacterDirection.RIGHT;
@@ -54,7 +55,7 @@ public class Player extends Person
         eatPoints();
         checkRoomExit();
         if(lifes == 0){
-            Greenfoot.delay(20);
+            name = Greenfoot.ask("Name :");
             Greenfoot.setWorld(new GameOver());
         }
     }    
@@ -154,7 +155,7 @@ public class Player extends Person
 
     void checkRoomExit(){
         if(isTouching(RoomExit.class) && key == true){
-            Greenfoot.delay(20);
+            name = Greenfoot.ask("Name :");
             Greenfoot.setWorld(new Congratulations());
         }
 
